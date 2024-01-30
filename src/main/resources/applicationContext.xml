@@ -7,10 +7,11 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="musicBean" class="secondSpringApplication.ClassicMusic">
+	<bean id="musicBean" class="secondSpringApplication.RockMusic">
 	</bean>
-	<bean id="musicPlayerBean" class="secondSpringApplication.MusicPlayer">
-	<constructor-arg ref ="musicBean"/>
+	<bean id="musicPlayerBean"
+		class="secondSpringApplication.MusicPlayer">
+		<property name = "music" ref="musicBean" />
 	</bean>
 
 </beans>
