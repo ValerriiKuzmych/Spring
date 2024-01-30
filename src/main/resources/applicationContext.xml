@@ -7,11 +7,32 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="musicBean" class="secondSpringApplication.RockMusic">
+	<context:property-placeholder
+		location="classpath:musicPlayer.properties" />
+
+	<bean id="musicRockBean" class="secondSpringApplication.RockMusic">
+	</bean>
+	<bean id="musicMetallBean"
+		class="secondSpringApplication.MetallMusic">
+	</bean>
+	<bean id="musicClassicBean"
+		class="secondSpringApplication.ClassicMusic">
 	</bean>
 	<bean id="musicPlayerBean"
 		class="secondSpringApplication.MusicPlayer">
-		<property name = "music" ref="musicBean" />
+		<property name="musicList">
+			<list>
+				<ref bean="musicRockBean" />
+				<ref bean="musicMetallBean" />
+				<ref bean="musicClassicBean" />
+
+			</list>
+			
+		</property>
+		<property name="volume" value="${musicPlayerBean.volume}"></property>
+        <property name="playlistShuffle" value="${musicPlayerBean.playlistShuffle}"></property>
+		
+	
 	</bean>
 
 </beans>

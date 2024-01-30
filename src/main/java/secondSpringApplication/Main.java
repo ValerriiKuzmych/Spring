@@ -12,8 +12,13 @@ public class Main {
 		// MusicPlayer player = new MusicPlayer(music);
 
 		MusicPlayer player = context.getBean("musicPlayerBean", MusicPlayer.class);
-		player.playMusic();
+		
+		
 
+		player.playMusicList();
+		System.out.println(player);
+		
+		
 		context.close();
 	}
 }
