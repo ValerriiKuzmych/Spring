@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MusicPlayer {
+	
+	
+	private MusicPlayer player;
 
 	private List<Music> musicList = new ArrayList<>();
 
@@ -11,7 +14,7 @@ public class MusicPlayer {
 
 	private boolean playlistShuffle;
 
-	public MusicPlayer() {
+	private MusicPlayer() {
 
 	}
 
@@ -23,6 +26,25 @@ public class MusicPlayer {
 		}
 
 	}
+	
+	private static MusicPlayer methodFactoryPlayer() {
+		
+		
+		
+		return new MusicPlayer();
+	}
+	
+	private void methodInit() {
+		
+		System.out.println("init-method");
+		
+	}
+    private void methodDestroy() {
+		
+		System.out.println("destroy-method");
+		
+	}
+	
 
 	public List<Music> getMusicList() {
 		return musicList;

@@ -19,7 +19,12 @@
 		class="secondSpringApplication.ClassicMusic">
 	</bean>
 	<bean id="musicPlayerBean"
-		class="secondSpringApplication.MusicPlayer">
+		class="secondSpringApplication.MusicPlayer"
+		factory-method = "methodFactoryPlayer"
+		init-method = "methodInit"
+		destroy-method = "methodDestroy"
+		scope = "prototype">
+		
 		<property name="musicList">
 			<list>
 				<ref bean="musicRockBean" />
